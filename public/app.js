@@ -18,6 +18,11 @@ var state = {
   overlayOpen: true
 };
 
+function frame(e, isSonzai) {
+  if (isSonzai) songzai();
+  e.classList.add("show");
+}
+
 function songzai(turnOn) {
   if (!turnOn) dom.sonzai.firstChild.contentWindow.postMessage("stopMusic", "http://sean.mu:4260");else dom.sonzai.firstChild.contentWindow.postMessage("playMusic", "http://sean.mu:4260");
 }

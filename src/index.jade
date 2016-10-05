@@ -20,13 +20,13 @@ html(lang="en")
         .over-shoku Shoku
         .over-yubi Yubi
       #sonzai.page
-        iframe(src="http://sean.mu:4260" onload="songzai()")
+        iframe(src="http://sean.mu:4260" onload="frame(this, 1)")
         .overlay(onclick="route('sonzai')")
       #shoku.page
-        iframe(src="http://sean.mu:4259")
+        iframe(src="http://sean.mu:4259" onload="frame(this)")
         .overlay(onclick="route('shoku')")
       #yubi.page
-        iframe(src="http://sean.mu:4261")
+        iframe(src="http://sean.mu:4261" onload="frame(this)")
         .overlay(onclick="route('yubi')")
     footer(onclick="route('/')")
       img.footer-bg(src="img/galaxybottom.png")
