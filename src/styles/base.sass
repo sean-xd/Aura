@@ -1,0 +1,189 @@
+// Mixins
+@mixin bbpad($pad)
+  box-sizing: border-box
+  padding: $pad
+@mixin hw($h, $w)
+  height: $h
+  width: $w
+@mixin layer($index)
+  position: fixed
+  z-index: $index
+@mixin topleft($top, $left)
+  left: $left
+  top: $top
+@mixin topright($top, $right)
+  right: $right
+  top: $top
+@mixin textshadow($color)
+  text-shadow: 1px 1px $color, 1px -1px $color, -1px 1px $color, -1px -1px $color
+
+// Reset
+html, body
+  @include hw(100%, 100%)
+  font: 0px "Helvetica Neue", "Segoe UI"
+  margin: 0
+body
+  background: rgb(20,20,20)
+a
+  text-decoration: none
+
+// Common
+.name, .position, .name-small, .link
+  @include textshadow(black)
+  color: white
+.link, .post-date, .post-title
+  display: inline-block
+header, footer, .name-small, nav, main
+  transition: .3s all
+
+// Header & Footer
+header, footer
+  @include layer(3)
+  @include hw(200px, 100%)
+  box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5)
+header
+  border-bottom: 5px solid rgb(20,20,20)
+  overflow: hidden
+  .mainOpen &
+    transform: translate3d(0px, -165px, 0px)
+.header-bg, .footer-bg
+  min-height: 100%
+  min-width: 100%
+  position: absolute
+  z-index: -1
+.name
+  font-size: 80px
+  font-weight: 700
+  padding: 20px 0px 0px 40px
+.position
+  font-size: 30px
+  padding: 0px 0px 0px 40px
+  transition: .2s all
+  .mainOpen &
+    transform: translate3d(0px, -40px, 0px)
+.name-small, .link
+  cursor: pointer
+  font-size: 16px
+.name-small
+  float: left
+  padding: 8px 20px 6px 20px
+nav
+  @include layer(3)
+  @include topleft(-40px, -0px)
+  @include hw(40px, 100%)
+  text-align: right
+  .mainOpen &
+    transform: translate3d(0px, 40px, 0px)
+.link
+  padding: 8px 10px 6px 10px
+  text-align: center
+  &:last-child
+    padding: 8px 20px 6px 10px
+footer
+  border-top: 5px solid rgb(20,20,20)
+  bottom: 0px
+  .mainOpen &
+    transform: translate3d(0px, 165px, 0px)
+.foot-nav
+  @include layer(3)
+  bottom: 0px
+  right: 0px
+  text-align: right
+.footer-link
+  @include textshadow(black)
+  color: white
+  cursor: pointer
+  font-size: 30px
+  font-weight: 700
+  display: inline-block
+  padding: 20px
+  text-align: center
+  transition: .3s all
+  .mainOpen &
+    font-size: 16px
+    padding: 10px
+.footer-link:last-child
+  padding: 20px 40px 20px 20px
+  .mainOpen &
+    padding: 10px 20px 10px 10px
+
+// Main
+main
+  @include hw(calc(100% - 80px), 100%)
+  overflow: hidden
+  position: relative
+  top: 40px
+
+// Pages
+.page
+  @include hw(180%, calc(150% / 3))
+  border-left: 5px solid rgb(20,20,20)
+  box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5)
+  overflow: hidden
+  position: absolute
+  text-align: center
+  top: 0
+  transform: rotate(30deg)
+  transition: .3s all
+  transform-origin: 80% 25%
+  vertical-align: top
+  z-index: 1
+.activePage
+  border-left: 0px solid rgb(40,40,40)
+  height: 100%
+  left: 0px !important
+  top: 0px !important
+  transform: rotate(0deg)
+  transform-origin: 0% 0%
+  width: 100%
+  z-index: 2
+  .overlay
+    pointer-events: none
+#sonzai
+  left: 0
+  top: -15%
+#shoku
+  left: calc(100% / 3)
+#yubi
+  left: calc(200% / 3)
+  top: 15%
+
+iframe
+  @include hw(100%, 100%)
+  border: none
+
+// Overlayers
+.overlay
+  @include hw(100%, 200%)
+  @include topleft(-20%, -100%)
+  transform: rotate(-30deg)
+  position: absolute
+  transition: .1s all
+  &:hover
+    background: rgb(40,40,40)
+
+.over-nav
+  @include layer(2)
+  @include topleft(calc(50% - 52px), 0px)
+  height: 100px
+  pointer-events: none
+  width: 100%
+  & div
+    position: absolute
+    color: white
+    display: inline-block
+    font-size: 20px
+    opacity: 0
+    padding: 40px 40px 40px 0px
+    text-align: center
+    transition: .2s all
+    width: 20%
+    &.hovered
+      opacity: 1
+
+.over-sonzai
+  @include topleft(0px, 10px)
+.over-shoku
+  @include topleft(0px, calc(35% - 10px))
+.over-yubi
+  @include topleft(0px, calc(75% - 20px))

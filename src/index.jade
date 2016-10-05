@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+  head
+    link(rel="stylesheet" href="base.css")
+    script(type="text/javascript" src="app.js" defer=true)
+    title Sean Murray | Software Developer
+  body
+    header
+      img.header-bg(src="img/galaxytop.png")
+      .name Sean Murray
+      .position Software Developer
+    nav
+      .name-small(onclick="route('/')") Sean Murray
+      .link(onclick="route('sonzai')") C//E
+      .link(onclick="route('shoku')") Shoku
+      .link(onclick="route('yubi')") Yubi
+    main
+      .over-nav
+        .over-sonzai Control // Escape
+        .over-shoku Shoku
+        .over-yubi Yubi
+      #sonzai.page
+        iframe(src="http://sean.mu:4260" onload="songzai()")
+        .overlay(onclick="route('sonzai')")
+      #shoku.page
+        iframe(src="http://sean.mu:4259")
+        .overlay(onclick="route('shoku')")
+      #yubi.page
+        iframe(src="http://sean.mu:4261")
+        .overlay(onclick="route('yubi')")
+    footer(onclick="route('/')")
+      img.footer-bg(src="img/galaxybottom.png")
+    .foot-nav
+      a.footer-link(href="https://github.com/sean-xd") Github
+      a.footer-link(href="https://www.linkedin.com/in/sean-murray-b66554111") Linkedin
+      a.footer-link(href="https://drive.google.com/file/d/0ByVaJZqEPE5ceUpwZUdFN0NFTzQ/view") Resume
+      .footer-link Contact
+        
