@@ -98,6 +98,22 @@ footer
   color: white
   .mainOpen &
     transform: translate3d(0px, 165px, 0px)
+
+.skills
+  @include topleft(10px, 40px)
+  @include hw(180px, 240px)
+  box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5)
+  position: absolute
+  transition: .3s all
+  .mainOpen &
+    transform: translate3d(0px, 40px, 0px)
+.skill
+  @include hw(58px, 58px)
+  border: 1px solid black
+  opacity: .9
+  &:hover
+    opacity: 1
+
 .lt, .email
   @include textshadow(black)
   font-weight: 700
@@ -118,7 +134,7 @@ footer
   float: right
   font-size: 30px
   padding: 10px 20px
-  &:nth-child(4)
+  &:nth-child(5)
     padding: 10px 40px 10px 20px
 .foot-nav
   @include layer(3)
