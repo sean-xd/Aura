@@ -48,6 +48,7 @@ header, footer, .name-small, nav, main
 header, footer
   @include layer(3)
   @include hw(200px, 100%)
+  background: rgb(20,20,20)
   box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5)
   overflow: hidden
 header
@@ -58,8 +59,12 @@ header
 .header-bg, .footer-bg
   min-height: 100%
   min-width: 100%
+  opacity: 1
   position: absolute
+  transition: .2s all
   z-index: -1
+  &.hide
+    opacity: 0
 .name
   font-size: 80px
   font-weight: 700

@@ -6,7 +6,7 @@ html(lang="en")
     title Sean Murray | Software Developer
   body
     header
-      img.header-bg(src="img/galaxytop.png")
+      img.header-bg(src="img/galaxytop.png" class="hide" onload="this.classList.remove('hide')")
       .name Sean Murray
       .position Software Developer
     nav
@@ -29,7 +29,7 @@ html(lang="en")
         iframe(src="http://sean.mu:4261" onload="frame(this)")
         .overlay(onclick="route('yubi')")
     footer(onclick="route('/')")
-      img.footer-bg(src="img/galaxybottom.png")
+      img.footer-bg(src="img/galaxybottom.png" class="hide" onload="this.classList.remove('hide')")
       .skills
         img.skill(src="img/A1-html.png" onload="loadSkill(this)")
         img.skill(src="img/A2-css.png" onload="loadSkill(this)")
