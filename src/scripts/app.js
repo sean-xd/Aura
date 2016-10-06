@@ -16,6 +16,10 @@ var state = {
   overlayOpen: true
 };
 
+function loadSkill(e){
+  e.setAttribute("style", "opacity: .6;")
+}
+
 function frame(e, isSonzai){
   if(isSonzai) songzai();
   e.classList.add("show");

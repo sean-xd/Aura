@@ -100,19 +100,21 @@ footer
     transform: translate3d(0px, 165px, 0px)
 
 .skills
-  @include topleft(10px, 40px)
-  @include hw(180px, 240px)
+  @include topleft(20px, 40px)
+  @include hw(160px, 480px)
+  background: rgb(40,40,40)
   box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5)
   position: absolute
   transition: .3s all
   .mainOpen &
     transform: translate3d(0px, 40px, 0px)
 .skill
-  @include hw(58px, 58px)
-  border: 1px solid black
-  opacity: .9
+  @include hw(78px, 78px)
+  border: 1px solid rgb(20,20,20)
+  opacity: 0
+  transition: .2s all
   &:hover
-    opacity: 1
+    opacity: 1 !important
 
 .lt, .email
   @include textshadow(black)
