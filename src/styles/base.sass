@@ -1,3 +1,11 @@
+// Fonts
+@font-face
+  font-family: 'Oleo Script'
+  font-style: normal
+  font-weight: 700
+  src: local('Oleo Script Bold'), local('OleoScript-Bold'), url(https://fonts.gstatic.com/s/oleoscript/v5/hudNQFKFl98JdNnlo363folIZu-HDpmDIZMigmsroc4.woff2) format('woff2')
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000
+
 // Mixins
 @mixin bbpad($pad)
   box-sizing: border-box
@@ -36,7 +44,7 @@ a
 header, footer, .name-small, nav, main
   transition: .3s all
 
-// Header & Footer
+// Header
 header, footer
   @include layer(3)
   @include hw(200px, 100%)
@@ -44,6 +52,7 @@ header, footer
   overflow: hidden
 header
   border-bottom: 5px solid rgb(20,20,20)
+  color: white
   .mainOpen &
     transform: translate3d(0px, -165px, 0px)
 .header-bg, .footer-bg
@@ -58,15 +67,11 @@ header
 .position
   font-size: 30px
   padding: 0px 0px 0px 40px
-  transition: .2s all
+  transition: .3s all
   .mainOpen &
     transform: translate3d(0px, -40px, 0px)
-.name-small, .link
-  cursor: pointer
-  font-size: 16px
-.name-small
-  float: left
-  padding: 8px 20px 6px 20px
+
+// Top Nav
 nav
   @include layer(3)
   @include topleft(-40px, -0px)
@@ -74,38 +79,69 @@ nav
   text-align: right
   .mainOpen &
     transform: translate3d(0px, 40px, 0px)
+.name-small, .link
+  cursor: pointer
+  font-size: 16px
+.name-small
+  float: left
+  padding: 8px 20px 6px 20px
 .link
   padding: 8px 10px 6px 10px
   text-align: center
   &:last-child
     padding: 8px 20px 6px 10px
+
+// Footer
 footer
   border-top: 5px solid rgb(20,20,20)
   bottom: 0px
+  color: white
   .mainOpen &
     transform: translate3d(0px, 165px, 0px)
-.foot-nav
-  @include layer(3)
-  bottom: 0px
-  right: 0px
+.lt, .email
+  @include textshadow(black)
+  font-weight: 700
+  padding-right: 40px
   text-align: right
-.footer-link
+.lt
+  font-size: 50px
+  padding-top: 20px
+.email
+  font-size: 30px
+.footer-link, .footnav-email, .footnav-link
   @include textshadow(black)
   color: white
-  cursor: pointer
-  font-size: 30px
   font-weight: 700
   display: inline-block
-  padding: 20px
-  text-align: center
   transition: .3s all
+.footer-link
+  float: right
+  font-size: 30px
+  padding: 10px 20px
+  &:nth-child(4)
+    padding: 10px 40px 10px 20px
+.foot-nav
+  @include layer(3)
+  bottom: -40px
+  color: white
+  pointer-events: none
+  right: 0px
+  text-align: right
+  transition: .3s all
+  width: 100%
   .mainOpen &
-    font-size: 16px
-    padding: 10px
-.footer-link:last-child
-  padding: 20px 40px 20px 20px
-  .mainOpen &
-    padding: 10px 20px 10px 10px
+    transform: translate3d(0px,-40px,0px)
+.footnav-link, .footnav-email
+  font-size: 16px
+  pointer-events: auto
+.footnav-link
+  padding: 8px
+  &:last-child
+    padding: 8px 20px 8px 8px
+.footnav-email
+  @include topleft(0px, 0px)
+  padding: 8px 8px 8px 20px
+  position: absolute
 
 // Main
 main
@@ -144,16 +180,16 @@ main
   left: 0
   top: -15%
 #shoku
-  left: calc(100% / 3)
+  left: 35%
 #yubi
-  left: calc(200% / 3)
+  left: 70%
   top: 15%
 
 iframe
   @include hw(100%, 100%)
   border: none
   opacity: 0
-  transition: .2s all
+  transition: .3s all
   &.show
     opacity: 1
 
@@ -166,7 +202,6 @@ iframe
   transition: .1s all
   &:hover
     background: rgb(40,40,40)
-
 .over-nav
   @include layer(2)
   @include topleft(calc(50% - 52px), 0px)
@@ -181,14 +216,13 @@ iframe
     opacity: 0
     padding: 40px 40px 40px 0px
     text-align: center
-    transition: .2s all
+    transition: .3s all
     width: 20%
     &.hovered
       opacity: 1
-
 .over-sonzai
-  @include topleft(0px, 10px)
+  @include topleft(0px, 3%)
 .over-shoku
-  @include topleft(0px, calc(35% - 10px))
+  @include topleft(0px, 37%)
 .over-yubi
-  @include topleft(0px, calc(75% - 20px))
+  @include topleft(0px, 75%)
