@@ -41,7 +41,7 @@ a
   color: white
 .link, .post-date, .post-title
   display: inline-block
-header, footer, .name-small, nav, main
+header, .name-small, nav, main
   transition: .3s all
 
 // Header
@@ -72,7 +72,7 @@ header
 .position
   font-size: 30px
   padding: 0px 0px 0px 40px
-  transition: .3s all
+  transition: .2s all
   .mainOpen &
     transform: translate3d(0px, -40px, 0px)
 
@@ -101,48 +101,59 @@ footer
   border-top: 5px solid rgb(20,20,20)
   bottom: 0px
   color: white
+  transition: .3s transform
   .mainOpen &
     transform: translate3d(0px, 165px, 0px)
 
-.skills
-  @include topleft(20px, 40px)
+.skills, .contact
   @include hw(160px, 480px)
-  background: rgb(40,40,40)
-  box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5)
   position: absolute
-  transition: .3s all
+  transition: .3s transform
   .mainOpen &
     transform: translate3d(0px, 40px, 0px)
+
+.skills
+  @include topleft(20px, 40px)
+  background: black
+  box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5)
 .skill
   @include hw(78px, 78px)
   border: 1px solid rgb(20,20,20)
   opacity: 0
-  transition: .2s all
+  transition: .2s opacity
   &:hover
     opacity: 1 !important
 
+.contact
+  @include topright(20px, 40px)
+  text-align: center
 .lt, .email
   @include textshadow(black)
   font-weight: 700
-  padding-right: 40px
-  text-align: right
 .lt
-  font-size: 50px
-  padding-top: 20px
+  font-size: 40px
 .email
   font-size: 30px
+  padding: 3px 0px 10px 0px
 .footer-link, .footnav-email, .footnav-link
   @include textshadow(black)
   color: white
-  font-weight: 700
   display: inline-block
-  transition: .3s all
+  font-weight: 700
+  transition: .2s all
 .footer-link
-  float: right
-  font-size: 30px
-  padding: 10px 20px
-  &:nth-child(5)
-    padding: 10px 40px 10px 20px
+  background: rgba(0,0,0,.8)
+  font-size: 26px
+  padding: 8px 0px 11px 0px
+  width: calc(100% / 3)
+  &:nth-child(3):hover
+    background: rgb(60,60,60)
+  &:nth-child(4):hover
+    background: rgb(0,120,180)
+  &:nth-child(5):hover
+    background: rgb(200,200,200)
+    color: rgb(40,40,40)
+    text-shadow: none
 .foot-nav
   @include layer(3)
   bottom: -40px
@@ -249,3 +260,46 @@ iframe
   @include topleft(0px, 37%)
 .over-yubi
   @include topleft(0px, 75%)
+
+@media(max-width: 1040px)
+  .skills
+    @include topleft(0px, 0px)
+    @include hw(200px, 275px)
+    overflow: hidden
+  .skill
+    @include hw(66.66px, 66.66px)
+
+@media(max-width: 800px)
+  .contact
+    box-sizing: border-box
+    bottom: 0px
+    right: 0px
+    top: 40px
+    padding: 0px 20px
+    width: calc(100% - 275px)
+  .lt
+    font-size: 30px
+  .email
+    font-size: 26px
+  .footer-link
+    font-size: 20px
+@media(max-width: 600px)
+  .name
+    padding: 40px 0 0 20px
+    font-size: 60px
+  .position
+    padding: 0 0 0 20px
+  .contact
+    padding: 2vw 20px 0px 20px
+    background: rgba(0,0,0,.6)
+    top: 0px
+    height: 200px
+    width: 100%
+  .email
+    font-size: 24px
+  .skills
+    @include hw(calc(100vw / 3), 100%)
+  .skill
+    @include hw(calc((100vw / 6) - 2px), calc((100vw / 6) - 2px))
+  footer
+    height: calc(100vw / 3)
