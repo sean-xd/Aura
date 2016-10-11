@@ -103,6 +103,7 @@ footer
   color: white
   transition: .3s transform
   .mainOpen &
+    height: 200px
     transform: translate3d(0px, 165px, 0px)
 
 .skills, .contact
@@ -186,7 +187,7 @@ main
 
 // Pages
 .page
-  @include hw(180%, calc(150% / 3))
+  @include hw(100%, 100%)
   background: rgb(80,80,80)
   border-left: 5px solid rgb(20,20,20)
   box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5)
@@ -194,30 +195,27 @@ main
   position: absolute
   text-align: center
   top: 0
-  transform: rotate(30deg)
   transition: .3s all
-  transform-origin: 80% 25%
-  vertical-align: top
-  z-index: 1
 .activePage
-  border-left: 0px solid rgb(40,40,40)
-  height: 100%
-  left: 0px !important
-  top: 0px !important
-  transform: rotate(0deg)
-  transform-origin: 0% 0%
-  width: 100%
-  z-index: 2
+  border-left: 0px solid rgb(20,20,20)
+  border-right: 0px solid rgb(20,20,20)
+  transform: translate3d(0,0,0) !important
   .overlay
     pointer-events: none
 #sonzai
-  left: 0
-  top: -15%
+  border-right: 5px solid rgb(20,20,20)
+  transform: translate3d(-70%,0,0)
+  z-index: 2
+  &.inactivePage
+    transform: translate3d(-100%,0,0) !important
 #shoku
-  left: 35%
+  left: 0px
+  z-index: 1
 #yubi
-  left: 70%
-  top: 15%
+  transform: translate3d(70%,0,0)
+  z-index: 2
+  &.inactivePage
+    transform: translate3d(100%,0,0) !important
 
 iframe
   @include hw(100%, 100%)
@@ -231,35 +229,37 @@ iframe
 .overlay
   @include hw(100%, 200%)
   @include topleft(-20%, -100%)
-  transform: rotate(-30deg)
+  background: rgba(0,0,0,.7)
+  opacity: 1
   position: absolute
-  transition: .1s all
+  transition: .2s all
+  .mainOpen &
+    opacity: 0
   &:hover
     background: rgb(40,40,40)
 .over-nav
-  @include layer(2)
+  @include layer(3)
   @include topleft(calc(50% - 52px), 0px)
   height: 100px
   pointer-events: none
   width: 100%
+  .mainOpen &
+    opacity: 0
   & div
     position: absolute
     color: white
     display: inline-block
     font-size: 20px
-    opacity: 0
     padding: 40px 40px 40px 0px
     text-align: center
     transition: .3s all
     width: 20%
-    &.hovered
-      opacity: 1
 .over-sonzai
-  @include topleft(0px, 3%)
+  @include topleft(0px, 4%)
 .over-shoku
-  @include topleft(0px, 37%)
+  @include topleft(0px, 40%)
 .over-yubi
-  @include topleft(0px, 75%)
+  @include topleft(0px, 76%)
 
 @media(max-width: 1040px)
   .skills
