@@ -207,6 +207,8 @@ main
   z-index: 2
   iframe
     transform: translate3d(20%,0,0)
+  .overlay
+    left: 10% !important
   &.inactivePage
     transform: scale3d(.65,.65,1) translate3d(-150%,0,0) !important
 #shoku
@@ -228,8 +230,8 @@ iframe
 
 // Overlayers
 .overlay
-  @include hw(100%, 200%)
-  @include topleft(0%, -100%)
+  @include hw(100%, 100%)
+  @include topleft(0, 0)
   background: rgba(0,0,0,.7)
   opacity: 1
   position: absolute
@@ -237,7 +239,7 @@ iframe
   .mainOpen &
     opacity: 0
   &:hover
-    background: rgb(40,40,40)
+    background: rgba(0,0,0,.95)
 .over-nav
   @include layer(3)
   @include topleft(calc(50% - 52px), 0px)
