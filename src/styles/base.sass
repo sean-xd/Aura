@@ -42,7 +42,7 @@ a
 .link, .post-date, .post-title
   display: inline-block
 header, .name-small, nav, main
-  transition: .3s all
+  transition: .2s all
 
 // Header
 header, footer
@@ -101,7 +101,7 @@ footer
   border-top: 5px solid rgb(20,20,20)
   bottom: 0px
   color: white
-  transition: .3s transform
+  transition: .2s transform
   .mainOpen &
     height: 200px
     transform: translate3d(0px, 165px, 0px)
@@ -109,7 +109,7 @@ footer
 .skills, .contact
   @include hw(160px, 480px)
   position: absolute
-  transition: .3s transform
+  transition: .2s transform
   .mainOpen &
     transform: translate3d(0px, 40px, 0px)
 
@@ -162,7 +162,7 @@ footer
   pointer-events: none
   right: 0px
   text-align: right
-  transition: .3s all
+  transition: .2s all
   width: 100%
   .mainOpen &
     transform: translate3d(0px,-40px,0px)
@@ -189,39 +189,40 @@ main
 .page
   @include hw(100%, 100%)
   background: rgb(80,80,80)
-  border-left: 5px solid rgb(20,20,20)
   box-shadow: 0px 0px 20px 5px rgba(0,0,0,.5)
   overflow: hidden
   position: absolute
   text-align: center
   top: 0
-  transition: .3s all
+  transition: .2s all
+  transform: scale3d(.65,.65,1)
 .activePage
-  border-left: 0px solid rgb(20,20,20)
-  border-right: 0px solid rgb(20,20,20)
   transform: translate3d(0,0,0) !important
+  iframe
+    transform: translate3d(0,0,0) !important
   .overlay
     pointer-events: none
 #sonzai
-  border-right: 5px solid rgb(20,20,20)
-  transform: translate3d(-68%,0,0)
+  transform: scale3d(.65,.65,1) translate3d(-75%,0,0)
   z-index: 2
+  iframe
+    transform: translate3d(20%,0,0)
   &.inactivePage
-    transform: translate3d(-100%,0,0) !important
+    transform: scale3d(.65,.65,1) translate3d(-150%,0,0) !important
 #shoku
   left: 0px
   z-index: 1
 #yubi
-  transform: translate3d(68%,0,0)
+  transform: scale3d(.65,.65,1) translate3d(75%,0,0)
   z-index: 2
   &.inactivePage
-    transform: translate3d(100%,0,0) !important
+    transform: scale3d(.65,.65,1) translate3d(150%,0,0) !important
 
 iframe
   @include hw(100%, 100%)
   border: none
   opacity: 0
-  transition: .3s all
+  transition: .2s all
   &.show
     opacity: 1
 
@@ -251,7 +252,7 @@ iframe
     display: inline-block
     font-size: 20px
     text-align: center
-    transition: .3s all
+    transition: .2s all
     width: 30%
   & h2
     margin: 0
