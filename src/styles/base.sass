@@ -204,7 +204,7 @@ main
     pointer-events: none
 #sonzai
   border-right: 5px solid rgb(20,20,20)
-  transform: translate3d(-70%,0,0)
+  transform: translate3d(-68%,0,0)
   z-index: 2
   &.inactivePage
     transform: translate3d(-100%,0,0) !important
@@ -212,7 +212,7 @@ main
   left: 0px
   z-index: 1
 #yubi
-  transform: translate3d(70%,0,0)
+  transform: translate3d(68%,0,0)
   z-index: 2
   &.inactivePage
     transform: translate3d(100%,0,0) !important
@@ -250,16 +250,21 @@ iframe
     color: white
     display: inline-block
     font-size: 20px
-    padding: 40px 40px 40px 0px
     text-align: center
     transition: .3s all
-    width: 20%
+    width: 30%
+  & h2
+    margin: 0
+  & p
+    margin: 0
+    padding: 5px 20px
+
 .over-sonzai
-  @include topleft(0px, 4%)
+  @include topleft(0px, 1%)
 .over-shoku
-  @include topleft(0px, 40%)
+  @include topleft(0px, 35%)
 .over-yubi
-  @include topleft(0px, 76%)
+  @include topleft(0px, 69%)
 
 @media(max-width: 1040px)
   .skills
@@ -269,7 +274,15 @@ iframe
   .skill
     @include hw(66.66px, 66.66px)
 
+@media(max-width: 900px)
+  .over-nav h2
+    font-size: 25px
+
 @media(max-width: 800px)
+  .over-nav h2
+    font-size: 20px
+  .over-nav p
+    font-size: 18px
   .contact
     box-sizing: border-box
     bottom: 0px
@@ -283,7 +296,11 @@ iframe
     font-size: 26px
   .footer-link
     font-size: 20px
-@media(max-width: 600px)
+@media(max-width: 610px)
+  .over-nav h2
+    font-size: 16px
+  .over-nav p
+    font-size: 15px
   .name
     padding: 40px 0 0 20px
     font-size: 60px

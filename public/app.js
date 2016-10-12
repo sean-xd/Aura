@@ -28,8 +28,6 @@ function frame(e, isSonzai) {
   e.classList.add("show");
 }
 
-console.log("ok");
-
 function songzai(turnOn) {
   if (!turnOn) dom.sonzai.firstChild.contentWindow.postMessage("stopMusic", "http://sean.mu:4260");else dom.sonzai.firstChild.contentWindow.postMessage("playMusic", "http://sean.mu:4260");
 }
@@ -54,17 +52,6 @@ function route(name) {
       return dom[e].classList.remove("inactivePage");
     });
   }
-}
-
-state.routes.forEach(function (name) {
-  dom[name].addEventListener("mouseenter", hovered(name));
-  dom[name].addEventListener("mouseleave", hovered(name));
-});
-
-function hovered(name) {
-  return function () {
-    return dom["over" + name].classList.toggle("hovered");
-  };
 }
 
 function el(name, parent) {

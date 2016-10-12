@@ -16,9 +16,15 @@ html(lang="en")
       .link(onclick="route('yubi')") Yubi
     main
       .over-nav
-        .over-sonzai Control // Escape
-        .over-shoku Shoku
-        .over-yubi Yubi
+        .over-sonzai
+          h2 Control // Escape
+          p Visual novel engine for upcoming JRPG set in an infinite future.
+        .over-shoku
+          h2 Shoku
+          p Tech / Startup Job aggregator and application tracker.
+        .over-yubi
+          h2 Yubi
+          p Browser authentication and device management boilerplate.
       #sonzai.page
         iframe(src="http://sean.mu:4260" onload="frame(this, 1)")
         .overlay(onclick="route('sonzai')")
